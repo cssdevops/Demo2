@@ -1,4 +1,0 @@
-This is git
-Demo for local repo
-Added new line
-another line

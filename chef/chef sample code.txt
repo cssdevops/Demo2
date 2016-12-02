@@ -1,0 +1,128 @@
+Create a file
+file '/tmp/something' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+
+Create a file in Microsoft Windows
+To create a file in Microsoft Windows, be sure to add an escape character—\—before the backslashes in the paths:
+file 'C:\\tmp\\something.txt' do
+  rights :read, 'Everyone'
+  rights :full_control, 'DOMAIN\\User'
+  action :create
+end
+
+
+Remove a file
+file '/tmp/something' do
+  action :delete
+end
+Set file modes
+file '/tmp/something' do
+  mode '0755'
+end
+
+
+directory '/a/b/c' do 
+owner 'admin' 
+group 'admin'
+mode '0755' 
+action :create 
+recursive true 
+end 
+
+ 
+
+Linux Commands execution chef
+bash 'install_something' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+  wget http://www.example.com/tarball.tar.gz
+  tar -zxf tarball.tar.gz
+  cd tarball
+  ./configure
+  make
+  make install
+  EOH
+End
+
+
+Start a service
+service 'example_service' do
+  action :start
+end
+
+
+Start a service, enable it
+
+
+service 'example_service' do
+  supports :status => true, :restart => true, :reload => true
+  action [ :enable, :start ]
+end
+
+Use a pattern
+service 'samba' do
+  pattern 'smbd'
+  action [:enable, :start]
+end
+
+Use the :nothing common action
+
+service 'memcached' do
+  action :nothing
+  supports :status => true, :start => true, :stop => true, :restart => true
+end
+
+Use the supports common attribute
+service 'apache' do
+  supports :restart => true, :reload => true
+  action :enable
+end
+
+
+#####################################################################
+Manage a service, depending on the node platform
+service 'example_service' do
+  case node['platform']
+  when 'centos','redhat','fedora'
+    service_name 'redhat_name'
+  else
+    service_name 'other_name'
+  end
+  supports :restart => true
+  action [ :enable, :start ]
+end
+
+For example, installing multiple packages:
+package ['package1', 'package2']
+Upgrading multiple packages:
+package ['package1', 'package2']  do
+  action :upgrade
+end
+Removing multiple packages:
+package ['package1', 'package2']  do
+  action :remove
+end
+
+
+user 'a user' do
+  comment 'A random user'
+  uid '1234'
+  gid '1234'
+  home '/home/random'
+  shell '/bin/bash'
+  password '$1$JJsvHslasdfjVEroftprNn4JHtDi'
+end
+
+Connect to git 
+git "/path/to/check/out/to" do
+  repository "git://github.com/opscode/chef.git"
+  reference "master"
+  action :sync
+end
+

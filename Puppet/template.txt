@@ -1,0 +1,87 @@
+-------------------------------------------
+vim modules/nginx/manifests/init.pp
+
+class nginx {
+  package { 'nginx':
+    ensure => installed,
+  }
+
+  service { 'nginx':
+    ensure => running,
+    enable => true,
+    require => Package['nginx'],
+  }
+
+  file { '/etc/nginx/sites-enabled/default':
+    ensure => 'absent',
+  }
+}
+
+-----------------------------------
+ cat modules/nginx/manifests/vhost.pp
+
+
+ cat modules/nginx/manifests/init.pp
+
+ class nginx {
+  package { 'nginx':
+    ensure => installed,
+  }
+
+  service { 'nginx':
+    ensure => running,
+    enable => true,
+    require => Package['nginx'],
+  }
+
+  file { '/etc/nginx/sites-enabled/default':
+    ensure => 'absent',
+  }
+}
+
+ 
+ ------------------------------------------------------------
+root@puppetmaster:/etc/puppet# cat modules/nginx/manifests/vhost.pp
+ 
+class nginx::vhost ($site_name = 'test',$site_domain = 'test.com') {
+
+  file { '/etc/nginx/sites-enabled/test.conf':
+    content => template('nginx/vhost.conf.erb'),
+    notify => Service['nginx'];
+
+    "/var/www/html/${site_name}":
+        ensure => 'directory';
+
+    "/var/www/html/${site_name}/index.html":
+        ensure => 'present',
+         content => template('nginx/index.html.erb');
+
+  }
+}
+--------------------------------------------------------
+
+mkdir -p modules/nginx/templates
+
+cat modules/nginx/templates/vhost.conf.erb
+
+server {
+  listen 80;
+  root /var/www/<%= @site_name %>;
+  server_name <%= @site_domain %>;
+}
+
+---------------------------------------------------------------
+ cat  modules/nginx/templates/index.html.erb
+This is <%= @site_name %>
+
+-----------------------------------------
+vim manifests/site.pp
+
+node 'puppetagent' {
+  include nginx
+  $site_name = 'site'
+  $site_domain = 'site.com'
+   include nginx::vhost
+}
+
+-----------------------------------------------

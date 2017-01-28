@@ -8,7 +8,7 @@ end
 
 
 Create a file in Microsoft Windows
-To create a file in Microsoft Windows, be sure to add an escape character�\�before the backslashes in the paths:
+To create a file in Microsoft Windows, be sure to add an escape character—\—before the backslashes in the paths:
 file 'C:\\tmp\\something.txt' do
   rights :read, 'Everyone'
   rights :full_control, 'DOMAIN\\User'
@@ -126,3 +126,26 @@ git "/path/to/check/out/to" do
   action :sync
 end
 
+########################################################################
+Create a file with a Ruby block, but not if “/etc/passwd” exists
+
+file '/tmp/file2.txt' do
+  action :create
+  content "this is test file\n"
+  mode '0644'
+not_if do
+    File.exist?('/etc/psswd')
+  end
+end
+
+####################################################
+
+
+Create a file with a Ruby block, but not if “/etc/passwd” exists
+
+file '/tmp/file2.txt' do
+  action :create
+  content "this is test file\n"
+  mode '0644'
+  not_if 'test -f /etc/passwd'
+end

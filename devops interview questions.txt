@@ -1,0 +1,198 @@
+
+General Questions:
+
+1. Tell me brief about your self
+2. Tell me your day to day activities.
+3. Tell me your roles and responsibilities.
+4. How many servers in your environment 
+5. How many of your team size
+6. what is your role means Designation
+7. how along you are working on devops
+8. How much rating you wll give On DevOps, AWS
+9. Which scripting Language you use for automation either shell or python
+10. How much rationg you will give on scripting
+11. Which versions using in your environment
+12. Which ticketing tool you are using in you environment
+13. which versions you are using in devops
+
+Tool         Latest        Old
+
+Git-----        2.12           2.10                    
+
+Jenkins     2.7.4        2.7.3
+
+puppet       2.7          2.6
+
+chef            12          11
+
+ansible        2.2       2.0/1
+
+docker         1.8      1.7 
+
+nginx           1.11      1.10
+
+httpd/apache 2.4     2.2/2.3
+
+Installed packages versions:
+
+package name    latest version   older or stable version
+apache/https        2.4                          2.2
+nginx                     1.11                        1.10
+mysql                     5.7                          5.6/5.5
+
+
+Git: 
+
+1. what is the difference between git pull and git clone
+2. what is the difference between git pull and git fetch
+3. what is staging area in git.
+4. what is git stash
+5. what is reset in git
+6. What is the difference between HEAD and checkout in git
+7. Have you configured github repository locally
+ 
+Jenkins: 
+
+1. How to upload the .json file in jenkins
+2. How to send the mail when build is unstable or broken
+3. How to store the jenkins server backup and restore
+4. How to take .xml files backup
+5. How to set the jenkins job build numbers
+6. What we can do with jenkins
+7. Why we are using jenkins
+ Ans) We can build, autodeploy, test the projects, send the notification....
+8.   Do we need to install jenkins in nodes
+9.   How you can write and execute the shell script in jenkins
+10. How to manage the nodes, how to manage the users, how we can create perticular project based authentications in jenkins.
+11. How I can integrate the LDAP using jenkins
+12. why we use nodes in jenkins
+13. How to configure windows agents in jenkins
+14. How to reduce the build time in jenkins
+15. I configured one project in jenkins I'm trying to configure anothe project but it's not getting added how you will trouble shoot.
+16. What are the artifacts in jenkins
+17. What are the artifacts in jenkins
+18. How you will give the customized build numbers in jenkins
+19. How you will send the notifications wether build is fail or success
+20. what is the pipe line project in jenkins
+21. what is the system type of jenkins server like t2 micro t2 medium.
+22. what is the stages of your jenkins project like pipe line project
+23. How will you give authentication permissions to the users in jenkins
+24. I have upgraded from one version to another version in jenkins after upgrading some of my upgraded plugins are not supporting to new version of
+      Jenkins then what you will do.
+25. How you will decide no of executors in jenkins
+26. How to reduce build time in pipeline project
+27. How set maven deployment path
+28. How to define no of executors in jenkins
+
+
+AWS:
+
+1.   How to increase the root volume size of your ec2 instance.
+2.   How to increase the root volume of your ec2 instance without changing instance ip address
+3.   How to scale instances timings base using autoscaling
+4.   How to configure ELB in AWS
+5.   What is sticky session ELB in AWS
+6.   How will you configure sticky session
+7.   How to upload SSL certificates in ELB
+8.   What is cross balancing in ELB
+9.   How to delete the one year old files in s3 bucket in AWS
+10. what is Classic ELB
+11. What is Application ELB
+12. What is the difference between classic and Application ELB
+13. How to redirect the https in ELB
+14. How to deploy or copy the application on autoscaling
+15. What life cycle in S3
+16. Have worked on spot instances
+17. What is cloud formation
+18. What is CloudFront
+19. What is public subnet and private subnet in aws
+20. what are the challenges you faced while migrating servers from physical to cloud
+21. What is RDS in aws and how will you launch RDS in instance in AWS and how will you connect it.
+22. Difference between private cloud and public cloud
+23. What is EC2, S3, ELB, Autoscaling, Cloudforamtion, CloudFront.
+24. I want to stop 24 hours mysql database instance how you will stop it.
+25. how to configure ELB health checks
+26. what is the difference between AMI and Snapshot
+27. I want to configure ELB with one instance does it work
+28. which mysql versions are available in RDS
+29. what is VPC in AWS and what is the use of VPC and how will you create public, private subnets and NAT instances and gateways
+30. What are the terminologies available in route53
+31. IAM policies
+32. what is the mechanism of ELB
+33. what is the mechanism of Autoscaling group
+34. How will you provide ec2 instance key to users are you using any protocall for this
+35.   
+
+Chef: 
+
+1. How communication happens chef server and workstation
+2. How communication happens chef server and nodes
+3. How communication happens chef client or nodes and workstation
+4. What is the configuration file of chef
+5. Which cookbook you wrote in chef and how will you write could you explain.
+6. How to deploy java applications using chef
+7. I want to update java version suppose from java 1.6 to 1.7 without modifying recipe how will you do that.
+8. How does chef server knows perticular node this is node for me.
+9. How will you take backup of nodes using chef
+10. How will you build chef opscode local server
+11. Is chef having ssl certificates? 
+12. How to run the cookbook without adding runlist
+13.what are reporter and pointers in chef
+14.chef zero and chef one
+
+Puppet:
+
+ 1. What is the configuration file of puppet.
+ 2. How communication happens puppet server and agents
+ 3.
+
+Ansible: 
+
+1. Have you worked on ansible
+2. Which Scripting used in Ansible
+
+Docker:
+
+ 1. How you will build the your own docker images
+ 2. How to find background process in docker containers
+ 3. what is docker swarm & Compose
+4. Which applications are running in your docker containers
+5. what is entry poind and command in in docker
+6. In docker-compose one of my instance is down then how will you troubleshoot
+7. what is the difference between vm and docker
+8. Is docker image as iso or is there any else
+9. How containers share memory by baremetalbox or some where else
+10. How containers will get volumes
+
+Linux:
+
+1. I have 100GB space in my '/' directory I'm trying to create files or directories in '/' directory I'm getting error called you dont have space,
+then what could be the reason
+Ans) Inode full
+2. Shift  A guy created filesystem and mount it to /tmp, shift B guy trying to create files and directories in /tmp, but he is unable to create files or dir's
+then what could be the reason
+Ans) May be filesystem is in read only mode
+3. what is the difference between useradd and adduser commands in linux
+4. what is logrotate how will you create logrotate for apache
+5. what is swap
+6. how to check swap space
+free, free -m
+7. Is swap space must need while installing linux os
+8. what is the use of iostat and vmstat commands
+8. what are the columns and rows in vmstat, iostat, top commands
+9. what are the run levels in linux
+10. what is system storage management(ssm)
+11. how to upgrade rhel6 to 7
+12. which versions of packages you installed like nginx, apache, httpd..
+13. what is nginx
+
+Vagrant:
+
+1. What is vagrant file 
+
+Nagios:
+
+1. Which monitoring tool you are using
+2. Have you configured NagiOS.
+3. How to configure nagios services
+4. What are the states of nagios
